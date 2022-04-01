@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout.base')
 
 @section('pageTitle', 'Home')
 
@@ -8,6 +8,7 @@
 
     <h1>Lista dei formati</h1>
 
+    <a class="btn btn-warning" href="{{route('comics.create')}}" role="button">Aggiungi fumetto</a>
 
     <table class="table">
         <thead>
@@ -32,9 +33,9 @@
                     <td>{{$comic->price}}</td>
                     <td>{{$comic->description}}</td>
 
-                    {{-- <td>
-                        <a class="btn btn-primary" href="{{ route('', $pasta->id) }}" role="button">Vedi</a>
-                    </td> --}}
+                    {<td>
+                        <a class="btn btn-primary" href="{{route('comics.show', $comic->id)}}" role="button">Vedi</a>
+                    </td>
 
                 </tr>
             @endforeach

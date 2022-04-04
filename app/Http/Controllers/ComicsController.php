@@ -37,12 +37,25 @@ class ComicsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Comic $comics)
     {
+
+        $request->validate(
+
+            [
+                'thumb' => 'required|url',
+                'series' => 'required|min:0',
+                'type' => 'required|min:0',
+                'sale_date' => 'required',
+                'price' => 'required|numeric|min:0',
+                'description' => 'required|min:20',
+            ]
+
+        );
 
         $data = $request->all();
 
-        $comics = new Comic();
+        //$comics = new Comic();
 
         $comics->fill($data);
 

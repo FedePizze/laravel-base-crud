@@ -35,6 +35,7 @@
 
                     {<td>
                         <a class="btn btn-primary" href="{{route('comics.show', $comic->id)}}" role="button">Vedi</a>
+                        <a class="btn btn-warning" href="{{route('comics.edit', $comic->id)}}" role="button">Modifica</a>
                     </td>
 
                 </tr>

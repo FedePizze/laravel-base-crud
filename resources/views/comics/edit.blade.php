@@ -1,17 +1,17 @@
 @extends('layout.base')
 
-@section('pageTitle')
-    Modifica: {{$comic->title}}
+@section('pageTitle', '{{$comic->title}}')
+
 @section('content')
 
     <div class="container">
 
         <h1>Modifica: {{$comic->title}}</h1>
 
-        <form method="POST" action="{{route('comics.update', ['comics' => $comic->id])}}">
+        <form method="POST" action="{{route('comics.update', ['comic' => $comic->id])}}">
 
             @csrf
-            @method('PUT');
+            @method('PUT')
 
             <div class="mb-3">
                 <label for="thumb" class="form-label" >Indirizzo immagine</label>

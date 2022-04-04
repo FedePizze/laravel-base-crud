@@ -73,8 +73,10 @@ class ComicsController extends Controller
      */
     public function edit(Comic $comic)
     {
+        //dd($comic);
 
         return view('comics.edit', compact('comic'));
+
     }
 
     /**
@@ -103,8 +105,12 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+
+        $comic->delete();
+
+        return redirect()->route('comics.index')->with('status', 'elemento eliminato');
+
     }
 }
